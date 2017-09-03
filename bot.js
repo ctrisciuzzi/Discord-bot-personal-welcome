@@ -2,7 +2,7 @@ const commando = require('discord.js-commando');
 const bot = new commando.Client();
 
 bot.on('message', message => {
-    if (message.content.startsWith('ping')){
+    if (message.content.startsWith('ping')) {
         message.channel.sendMessage(message.author.id);
         /*
 		var voiceChannel = message.member.voiceChannel;
@@ -12,7 +12,7 @@ bot.on('message', message => {
             })
             .catch(err => console.log(err));
 		*/
-            message.channel.sendMessage(message.author);
+        message.channel.sendMessage(message.author);
     }
 })
 bot.on('voiceStateUpdate', (oldMember, newMember) => { //voiceStateUpdate: change channel, mute/unmute
@@ -30,14 +30,18 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => { //voiceStateUpdate: chang
 			.catch(err => console.log(err));
         } else if (newMember.id==126384828793749504) { //se è Veskim
             var newMemberChannel =  newMember.voiceChannel;
-            newMemberChannel.join().then(connection => {
+            newMemberChannel.join()
+            .then(connection => {
 				const dispatcher = connection.playFile('D:/AudioBot/veskim3.ogg');
 			})
+            .catch(err => console.log(err));
         } else { //se è un tizio a caso
             var newMemberChannel =  newMember.voiceChannel;
-            newMemberChannel.join().then(connection => {
-              const dispatcher = connection.playFile('D:/AudioBot/veskim1.ogg');
+            newMemberChannel.join()
+            .then(connection => {
+                const dispatcher = connection.playFile('D:/AudioBot/veskim1.ogg');
 			})
+            .catch(err => console.log(err));
         }
     } else if (newUserChannel === undefined) {
         var oldMemberChannel = oldMember.voiceChannel;
