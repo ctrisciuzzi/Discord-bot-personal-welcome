@@ -23,13 +23,13 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => { //voiceStateUpdate: chang
 
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) { //Membro entra nel canale
-        if(newMember.id==272401991165149185){ //se è Stefalber
+        if(newMember.id==number2){ //se è Stefalber
       var newMemberChannel =  newMember.voiceChannel;
       newMemberChannel.join().then(connection => {
         const dispatcher = connection.playFile('D:/AudioBot/veskim2.ogg');
     })
     .catch(err => console.log(err));
-        }else if(newMember.id==126384828793749504){ //se è Veskim
+        }else if(newMember.id==number1){ //se è Veskim
             var newMemberChannel =  newMember.voiceChannel;
             newMemberChannel.join().then(connection => {
               const dispatcher = connection.playFile('D:/AudioBot/veskim3.ogg');
@@ -49,7 +49,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => { //voiceStateUpdate: chang
         .catch(err => console.log(err));
     
 
-    } else if(newUserChannel.id == 352561236707377194){ //se è già nel server ed entra in General
+    } else if(newUserChannel.id == number3 //se è già nel server ed entra in General
         var newMemberChannel = newMember.voiceChannel;
         newMemberChannel.join().then(connection => {
             const dispatcher1 = connection.playFile('D:/AudioBot/veskim1.ogg');
